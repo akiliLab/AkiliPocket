@@ -13,8 +13,10 @@
         <fragment
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:name="design.akililab.akilipocket.HomeFragment"
-                android:id="@+id/homeFragment"/>
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:id="@+id/homeNavHostFragment"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/main_navigation"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
