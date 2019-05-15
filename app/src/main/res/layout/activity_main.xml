@@ -12,19 +12,24 @@
 
         <fragment
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:id="@+id/homeNavHostFragment"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/main_navigation"/>
+                app:navGraph="@navigation/main_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Bottom Navigation-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 tools:layout_editor_absoluteX="0dp"
-                android:layout_marginBottom="@dimen/keyline_0"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/menu_bottom_navigation" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
