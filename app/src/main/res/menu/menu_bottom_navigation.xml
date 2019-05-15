@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeFragment"
+          android:title="@string/home_placeholder"
+          android:icon="@drawable/twotone_view_headline_24"/>
+
+    <item android:title="@string/account_placeholder"
+          android:id="@+id/accountFragment"
+          android:icon="@drawable/twotone_payment_24"/>
+
+    <item android:title="@string/payment_placeholder"
+          android:id="@+id/paymentFragment"
+          android:icon="@drawable/twotone_swap_horiz_24"/>
+</menu>
