@@ -6,19 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import design.akililab.akilipocket.databinding.FragmentAccountBinding
 import androidx.databinding.DataBindingUtil
-import design.akililab.akilipocket.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ *
+ */
+class AccountFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-       val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
-        
+        val binding = DataBindingUtil.inflate<FragmentAccountBinding>(inflater,R.layout.fragment_account, container, false)
+
         return binding.root
     }
 
