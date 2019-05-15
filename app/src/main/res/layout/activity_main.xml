@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:name="design.akililab.akilipocket.HomeFragment"
-                android:id="@+id/fragment2"/>
+                android:id="@+id/homeFragment"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
