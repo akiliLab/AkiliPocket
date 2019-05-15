@@ -17,6 +17,14 @@
                 android:id="@+id/homeNavHostFragment"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/main_navigation"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                tools:layout_editor_absoluteX="0dp"
+                android:layout_marginBottom="@dimen/keyline_0"
+                app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
