@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.myToolbar)
 
+        // Remove title name
+
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+
         navController = findNavController(R.id.homeNavHostFragment)
 
         binding.bottomNavigation.setupWithNavController(navController)

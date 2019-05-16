@@ -9,7 +9,8 @@
 
     <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>
 
-    <dimen name="elevation_default_top_app_bar">4dp</dimen>
+    <dimen name="elevation_default_top_app_bar">0dp</dimen>
+    <dimen name="length_app_bar_layout">150dp</dimen>
 
     <!--Emphasis modifiers for "on" colors-->
     <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
