@@ -3,4 +3,6 @@
     <string name="home_placeholder">Home</string>
     <string name="account_placeholder">Account</string>
     <string name="payment_placeholder">Payment</string>
+    <string name="account">account</string>
+    <string name="notification">notification</string>
 </resources>

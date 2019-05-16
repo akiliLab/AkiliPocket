@@ -2,10 +2,8 @@ package design.akililab.akilipocket
 
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import design.akililab.akilipocket.databinding.FragmentHomeBinding
 
@@ -18,9 +16,12 @@ class HomeFragment : Fragment() {
     ): View? {
 
        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
+        setHasOptionsMenu(true)
         
         return binding.root
     }
 
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_app_bar_menu, menu)
+    }
 }
