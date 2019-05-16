@@ -14,32 +14,26 @@ import design.akililab.akilipocket.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+
+    lateinit var navController: NavController;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        @Suppress("UNUSED_VARIABLE")
 
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
-        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.homeNavHostFragment) as NavHostFragment? ?: return
+        setSupportActionBar(binding.myToolbar)
 
-        val navController = host.navController
+        navController = findNavController(R.id.homeNavHostFragment)
 
-        setupBottomNavMenu(navController)
-    }
+        binding.bottomNavigation.setupWithNavController(navController)
 
-
-    private fun setupBottomNavMenu(navController: NavController) {
-
-            val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-            bottomNav?.setupWithNavController(navController)
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return item!!.onNavDestinationSelected(findNavController(R.id.homeNavHostFragment)) || super.onOptionsItemSelected(item)
+        return item!!.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
-
-
 
 
 
