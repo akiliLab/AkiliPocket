@@ -78,4 +78,7 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
 
     }
 
+
+
+
 }
