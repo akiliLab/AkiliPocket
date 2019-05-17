@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import design.akililab.akilipocket.databinding.FragmentHomeBinding
 
 
@@ -36,6 +37,8 @@ class HomeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.home_app_bar_menu, menu)
     }
+
+
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
