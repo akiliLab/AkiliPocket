@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:keepScreenOn="true">
 
-    <com.google.firebase.ml.md.kotlin.camera.CameraSourcePreview
-            android:id="@+id/camera_preview"
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:keepScreenOn="true">
 
-        <include layout="@layout/camera_preview_overlay_kotlin"/>
+        <design.akililab.akilipocket.camera.CameraSourcePreview
+                android:id="@+id/camera_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    </com.google.firebase.ml.md.kotlin.camera.CameraSourcePreview>
+            <include layout="@layout/camera_preview_overlay"/>
 
-    <include
-            layout="@layout/top_action_bar_camera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"/>
+        </design.akililab.akilipocket.camera.CameraSourcePreview>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <include
+                layout="@layout/top_action_bar_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
