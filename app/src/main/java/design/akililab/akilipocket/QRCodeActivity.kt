@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
 import com.google.android.gms.common.internal.Objects
 import com.google.android.material.chip.Chip
+import design.akililab.akilipocket.barcodedetection.BarcodeField
+import design.akililab.akilipocket.barcodedetection.BarcodeProcessor
+import design.akililab.akilipocket.barcodedetection.BarcodeResultFragment
 import design.akililab.akilipocket.camera.CameraSource
 import design.akililab.akilipocket.camera.CameraSourcePreview
 import design.akililab.akilipocket.camera.GraphicOverlay
@@ -34,6 +37,8 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
     private var flashButton: View? = null
     private var workflowModel: WorkflowModel? = null
     private var currentWorkflowState: WorkflowState? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,9 +77,26 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
         workflowModel?.markCameraFrozen()
         settingsButton?.isEnabled = true
         currentWorkflowState = WorkflowState.NOT_STARTED
-
+        cameraSource?.setFrameProcessor(BarcodeProcessor(graphicOverlay!!, workflowModel!!))
+        workflowModel?.setWorkflowState(WorkflowState.DETECTING)
     }
 
+    override fun onPostResume() {
+        super.onPostResume()
+        BarcodeResultFragment.dismiss(supportFragmentManager)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        currentWorkflowState = WorkflowState.NOT_STARTED
+        stopCameraPreview()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraSource?.release()
+        cameraSource = null
+    }
 
 
     override fun onClick(view: View) {
@@ -92,7 +114,6 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
 
                 }
             }
-
             R.id.settings_button -> {
                 settingsButton?.isEnabled = false
             }
@@ -100,25 +121,21 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
 
     }
 
+
     private fun setUpWorkflowModel() {
-
         workflowModel = ViewModelProviders.of(this).get(WorkflowModel::class.java)
-
 
         // Observes the workflow state changes, if happens, update the overlay view indicators and
         // camera preview state.
         workflowModel!!.workflowState.observe(this, Observer { workflowState ->
-
             if (workflowState == null || Objects.equal(currentWorkflowState, workflowState)) {
                 return@Observer
             }
 
             currentWorkflowState = workflowState
-
             Log.d(TAG, "Current workflow state: " + currentWorkflowState!!.name)
 
             val wasPromptChipGone = promptChip?.visibility == View.GONE
-
 
             when (workflowState) {
                 WorkflowState.DETECTING -> {
@@ -143,31 +160,23 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
                 else -> promptChip?.visibility = View.GONE
             }
 
-
             val shouldPlayPromptChipEnteringAnimation = wasPromptChipGone && promptChip?.visibility == View.VISIBLE
-
             promptChipAnimator?.let {
                 if (shouldPlayPromptChipEnteringAnimation && !it.isRunning) it.start()
             }
-
         })
 
         workflowModel?.detectedBarcode?.observe(this, Observer { barcode ->
             if (barcode != null) {
-
-//                TODO: Add   QR detection
-
-//                val barcodeFieldList = ArrayList<BarcodeField>()
-//                barcodeFieldList.add(BarcodeField("Raw Value", barcode.rawValue ?: ""))
-//                BarcodeResultFragment.show(supportFragmentManager, barcodeFieldList)
+                val barcodeFieldList = ArrayList<BarcodeField>()
+                barcodeFieldList.add(BarcodeField("Raw Value", barcode.rawValue ?: ""))
+                BarcodeResultFragment.show(supportFragmentManager, barcodeFieldList)
             }
         })
-
     }
 
 
     private fun startCameraPreview() {
-
         val workflowModel = this.workflowModel ?: return
         val cameraSource = this.cameraSource ?: return
         if (!workflowModel.isCameraLive) {
@@ -180,7 +189,6 @@ class QRCodeActivity : AppCompatActivity(), OnClickListener {
                 this.cameraSource = null
             }
         }
-
     }
 
     private fun stopCameraPreview() {
