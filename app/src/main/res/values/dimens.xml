@@ -17,4 +17,9 @@
     <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
     <dimen name="alpha_emphasis_medium">@dimen/mtrl_emphasis_medium</dimen>
     <dimen name="alpha_emphasis_disabled">@dimen/mtrl_emphasis_disabled</dimen>
+
+    <!--QRCode-->
+    <dimen name="top_action_bar_padding_horizontal">8dp</dimen>
+    <dimen name="top_action_bar_height">64dp</dimen>
+    <dimen name="top_action_button_padding">12dp</dimen>
 </resources>
