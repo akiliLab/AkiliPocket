@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import design.akililab.akilipocket.databinding.FragmentPaymentBinding
 
@@ -20,6 +21,12 @@ class PaymentFragment : Fragment() {
 
 
         val binding = DataBindingUtil.inflate<FragmentPaymentBinding>(inflater, R.layout.fragment_payment, container, false)
+
+//        val homeActivity: AppCompatActivity = (activity as AppCompatActivity)
+//
+//        homeActivity.setSupportActionBar(binding.payment)
+//
+//        homeActivity.supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         return binding.root
     }
