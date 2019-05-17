@@ -21,7 +21,6 @@ class HomeFragment : Fragment() {
 
         val homeActivity: AppCompatActivity = (activity as AppCompatActivity)
 
-
         homeActivity.setSupportActionBar(binding.homeToolBar)
 
         homeActivity.supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -35,3 +34,4 @@ class HomeFragment : Fragment() {
         inflater.inflate(R.menu.home_app_bar_menu, menu)
     }
 }
+ 
