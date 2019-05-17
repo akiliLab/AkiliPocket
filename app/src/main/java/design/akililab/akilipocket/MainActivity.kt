@@ -15,18 +15,12 @@ import design.akililab.akilipocket.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 
-    lateinit var navController: NavController;
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-
-        setSupportActionBar(binding.myToolbar)
-
-        // Remove title name
-
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
 
 
         navController = findNavController(R.id.homeNavHostFragment)
