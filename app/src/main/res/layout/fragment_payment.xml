@@ -17,7 +17,6 @@
                 app:layout_collapseMode="pin"
                 android:elevation="0dp"
                 tools:targetApi="lollipop"
-                app:navigationIcon="?attr/homeAsUpIndicator"
                 app:layout_constraintTop_toTopOf="parent"/>
 
 
