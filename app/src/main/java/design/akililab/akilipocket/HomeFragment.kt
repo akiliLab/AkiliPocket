@@ -3,6 +3,7 @@ package design.akililab.akilipocket
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import design.akililab.akilipocket.databinding.FragmentHomeBinding
@@ -16,6 +17,15 @@ class HomeFragment : Fragment() {
     ): View? {
 
        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
+
+
+        val homeActivity: AppCompatActivity = (activity as AppCompatActivity)
+
+
+        homeActivity.setSupportActionBar(binding.homeToolBar)
+
+        homeActivity.supportActionBar!!.setDisplayShowTitleEnabled(false)
+
         setHasOptionsMenu(true)
         
         return binding.root

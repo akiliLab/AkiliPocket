@@ -14,17 +14,20 @@
 
         <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
+                android:id="@+id/home_app_bar_layout"
                 android:layout_height="@dimen/length_app_bar_layout">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/home_collapsing_bar"
                     app:contentScrim="?attr/colorPrimary"
                     app:expandedTitleGravity="top"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <androidx.appcompat.widget.Toolbar
                         android:layout_width="match_parent"
+                        android:id="@+id/home_tool_bar"
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
                         android:elevation="0dp"
