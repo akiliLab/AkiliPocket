@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!Utils.allPermissionsGranted(this)) {
+            Utils.requestRuntimePermissions(this)
+        }
+    }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return item!!.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
