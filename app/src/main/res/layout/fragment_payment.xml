@@ -14,7 +14,7 @@
                 android:text="@string/payment_placeholder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/profile_placeholder"
+                android:id="@+id/notification_placeholder"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintStart_toStartOf="parent"
