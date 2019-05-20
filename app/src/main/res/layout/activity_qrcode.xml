@@ -8,15 +8,11 @@
             android:layout_height="match_parent"
             android:keepScreenOn="true">
 
-        <design.akililab.akilipocket.qrcode.camera.CameraSourcePreview
-                android:id="@+id/camera_preview"
+        <fragment
+                android:id="@+id/cameraFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <include layout="@layout/camera_preview_overlay"/>
-
-        </design.akililab.akilipocket.qrcode.camera.CameraSourcePreview>
-
+                android:layout_height="match_parent"
+                android:name="design.akililab.akilipocket.qrcode.camera.CameraFragment"/>
 
         <include
                 layout="@layout/top_action_bar_camera"

@@ -1,6 +1,6 @@
 package design.akililab.akilipocket.qrcode.camera
 
-import android.content.Context
+
 import android.graphics.Canvas
 
 /**
@@ -10,9 +10,14 @@ import android.graphics.Canvas
  */
 
 
-abstract class Graphic protected constructor(protected val overlay: GraphicOverlay) {
-    protected val context: Context = overlay.context
+abstract class Graphic () {
+
+    protected var host: GraphicOverlay? = null
 
     /** Draws the graphic on the supplied canvas.  */
     abstract fun draw(canvas: Canvas)
+
+    open fun onAttached(view: GraphicOverlay) {
+        this.host = view
+    }
 }

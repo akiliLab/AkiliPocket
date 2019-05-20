@@ -3,22 +3,21 @@ package design.akililab.akilipocket.qrcode.camera
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
-import android.view.View
+import android.widget.FrameLayout
 import androidx.annotation.GuardedBy
 
-class GraphicOverlay(context: Context, attrs: AttributeSet) : View(context, attrs) {
+class GraphicOverlay(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
 
     private val graphics = ArrayList<Graphic>()
 
-    init {
 
+    init {
         setWillNotDraw(false)
     }
 
 
     @GuardedBy("objectLock")
     fun remove(graphic: Graphic) {
-
         graphics.remove(graphic)
 
     }
@@ -27,6 +26,7 @@ class GraphicOverlay(context: Context, attrs: AttributeSet) : View(context, attr
     fun add(graphic: Graphic) {
         remove(graphic)
         graphics.add(graphic)
+        graphic.onAttached(this)
         invalidate()
     }
 
