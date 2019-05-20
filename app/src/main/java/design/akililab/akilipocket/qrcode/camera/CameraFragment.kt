@@ -15,6 +15,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import design.akililab.akilipocket.R
 import design.akililab.akilipocket.databinding.FragmentCameraBinding
+import kotlinx.android.synthetic.main.camera_preview_overlay.*
 
 
 class CameraFragment : Fragment() {
@@ -53,7 +54,15 @@ class CameraFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        mutableGraphicOverlay.postValue(graphicOverlay)
+        mutableGraphicOverlay.postValue(camera_preview_graphic_overlay)
+
+        CameraPermissionHelper().requestCameraPermission(childFragmentManager) {
+            if (it) {
+                startCamera()
+            } else {
+                activity?.finish()
+            }
+        }
     }
 
 
