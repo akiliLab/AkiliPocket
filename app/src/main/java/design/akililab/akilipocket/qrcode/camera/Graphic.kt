@@ -15,7 +15,7 @@ abstract class Graphic () {
     protected var host: GraphicOverlay? = null
 
     /** Draws the graphic on the supplied canvas.  */
-    abstract fun draw(canvas: Canvas)
+    abstract fun onDraw(canvas: Canvas)
 
     open fun onAttached(view: GraphicOverlay) {
         this.host = view
