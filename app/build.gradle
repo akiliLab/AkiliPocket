@@ -17,7 +17,7 @@ android {
     }
     defaultConfig {
         applicationId "design.akililab.akilipocket"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -51,7 +51,7 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
 
-    
+
     // MLKit Dependencies
     implementation 'com.google.firebase:firebase-ml-vision:20.0.0'
     implementation 'com.google.firebase:firebase-ml-vision-object-detection-model:16.0.0'

@@ -1,14 +1,14 @@
-package design.akililab.akilipocket
+package design.akililab.akilipocket.payment
 
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import design.akililab.akilipocket.qrcode.QRCodeActivity
+import design.akililab.akilipocket.R
 import design.akililab.akilipocket.databinding.FragmentPaymentBinding
 
 
@@ -20,7 +20,8 @@ class PaymentFragment : Fragment() {
     ): View? {
 
 
-        val binding = DataBindingUtil.inflate<FragmentPaymentBinding>(inflater, R.layout.fragment_payment, container, false)
+        val binding = DataBindingUtil.inflate<FragmentPaymentBinding>(inflater,
+            R.layout.fragment_payment, container, false)
 
         val homeActivity: AppCompatActivity = (activity as AppCompatActivity)
 

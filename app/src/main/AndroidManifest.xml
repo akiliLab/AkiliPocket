@@ -23,7 +23,7 @@
                 android:value="barcode"/>
 
         <activity
-                android:name=".QRCodeActivity"
+                android:name=".qrcode.QRCodeActivity"
                 android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout">
         </activity>
 

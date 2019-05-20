@@ -5,25 +5,25 @@
             app:startDestination="@id/homeFragment">
 
     <fragment android:id="@+id/homeFragment"
-              android:name="design.akililab.akilipocket.HomeFragment"
+              android:name="design.akililab.akilipocket.home.HomeFragment"
               android:label="Home"
               tools:layout="@layout/fragment_home"/>
 
     <fragment android:id="@+id/accountFragment"
-              android:name="design.akililab.akilipocket.AccountFragment"
+              android:name="design.akililab.akilipocket.account.AccountFragment"
               android:label="fragment_account"
               tools:layout="@layout/fragment_account"/>
 
     <fragment android:id="@+id/notificationFragment"
-              android:name="design.akililab.akilipocket.NotificationFragment"
+              android:name="design.akililab.akilipocket.notification.NotificationFragment"
               android:label="fragment_notification"
               tools:layout="@layout/fragment_notification"/>
 
     <fragment android:id="@+id/profileFragment"
-              android:name="design.akililab.akilipocket.ProfileFragment"
+              android:name="design.akililab.akilipocket.profile.ProfileFragment"
               android:label="fragment_profile"
               tools:layout="@layout/fragment_profile"/>
-    <fragment android:id="@+id/paymentFragment" android:name="design.akililab.akilipocket.PaymentFragment"
+    <fragment android:id="@+id/paymentFragment" android:name="design.akililab.akilipocket.payment.PaymentFragment"
               android:label="fragment_payment" tools:layout="@layout/fragment_payment"/>
 
 </navigation>

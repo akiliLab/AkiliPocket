@@ -1,4 +1,4 @@
-package design.akililab.akilipocket
+package design.akililab.akilipocket.account
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import design.akililab.akilipocket.databinding.FragmentAccountBinding
 import androidx.databinding.DataBindingUtil
+import design.akililab.akilipocket.R
 
 
 /**
@@ -21,7 +22,8 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentAccountBinding>(inflater,R.layout.fragment_account, container, false)
+        val binding = DataBindingUtil.inflate<FragmentAccountBinding>(inflater,
+            R.layout.fragment_account, container, false)
 
         return binding.root
     }

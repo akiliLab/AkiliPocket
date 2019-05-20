@@ -8,14 +8,7 @@
             android:layout_height="match_parent"
             android:keepScreenOn="true">
 
-        <design.akililab.akilipocket.camera.CameraSourcePreview
-                android:id="@+id/camera_preview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <include layout="@layout/camera_preview_overlay"/>
-
-        </design.akililab.akilipocket.camera.CameraSourcePreview>
+        <include layout="@layout/camera_preview_overlay"/>
 
         <include
                 layout="@layout/top_action_bar_camera"

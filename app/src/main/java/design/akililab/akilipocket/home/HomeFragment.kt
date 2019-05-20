@@ -1,4 +1,4 @@
-package design.akililab.akilipocket
+package design.akililab.akilipocket.home
 
 
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
+import design.akililab.akilipocket.R
 import design.akililab.akilipocket.databinding.FragmentHomeBinding
 
 
@@ -19,7 +19,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-       val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
+       val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
+           R.layout.fragment_home, container, false)
 
 
         val homeActivity: AppCompatActivity = (activity as AppCompatActivity)
