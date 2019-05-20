@@ -13,7 +13,7 @@ import design.akililab.akilipocket.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 
-   lateinit var navController: NavController
+   private lateinit var navController: NavController
 
 
 
@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
         return item!!.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+
     }
 
 
