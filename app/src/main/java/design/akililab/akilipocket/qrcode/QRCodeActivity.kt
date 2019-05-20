@@ -10,6 +10,8 @@ import design.akililab.akilipocket.R
 import design.akililab.akilipocket.databinding.ActivityQrcodeBinding
 import design.akililab.akilipocket.qrcode.camera.BoundingBoxQRCodeBasic
 import design.akililab.akilipocket.qrcode.camera.CameraFragment
+import design.akililab.akilipocket.qrcode.camera.PathInterpolator
+import design.akililab.akilipocket.qrcode.camera.PositionTranslator
 
 
 class QRCodeActivity : AppCompatActivity() {
@@ -37,13 +39,11 @@ class QRCodeActivity : AppCompatActivity() {
 
         camera.graphicOverlay.observe(camera, Observer {
 
-//            it.doOnLayout { view ->
-//                imageAnalyzer.arObjectTracker
-//                    .pipe(PositionTranslator(view.width, view.height))
-//                    .pipe(PathInterpolator())
-//                    .addTrackingListener(boundingBoxArOverlay)
-//            }
-
+            it.doOnLayout { view ->
+                imageAnalyzer.qrCodeTracker.pipe(PositionTranslator(view.width, view.height))
+                    .pipe(PathInterpolator())
+                    .addTrackingListener(boundingBoxArOverlay)
+            }
 
             it.add(boundingBoxArOverlay)
         })
@@ -51,11 +51,6 @@ class QRCodeActivity : AppCompatActivity() {
 
     }
 
-
-
-    companion object {
-        private const val TAG = "LiveBarcodeActivity"
-    }
 
 
 }

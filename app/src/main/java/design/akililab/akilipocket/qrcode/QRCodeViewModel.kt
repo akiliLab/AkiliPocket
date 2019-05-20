@@ -10,12 +10,14 @@ import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata
+import design.akililab.akilipocket.qrcode.camera.QRCodeTracker
 import design.akililab.akilipocket.qrcode.camera.ThreadedImageAnalyzer
 import java.util.concurrent.atomic.AtomicBoolean
 
 class QRCodeViewModel : ViewModel(), ThreadedImageAnalyzer {
 
 
+    val qrCodeTracker = QRCodeTracker()
     private val isBusy = AtomicBoolean(false)
     private val handlerThread = HandlerThread("ClassifySneakerImageAnalyzer").apply { start() }
 
@@ -45,7 +47,7 @@ class QRCodeViewModel : ViewModel(), ThreadedImageAnalyzer {
 
 
             objectDetector.detectInImage(visionImage)
-                .addOnSuccessListener { barcodes ->
+                .addOnSuccessListener { _ ->
                     isBusy.set(false)
                     Log.i("Bar Code detected", "barcode")
                     // Task completed successfully

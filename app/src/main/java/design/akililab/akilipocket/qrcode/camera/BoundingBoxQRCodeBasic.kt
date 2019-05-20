@@ -9,7 +9,8 @@ import androidx.annotation.ColorInt
 import design.akililab.akilipocket.R
 
 
-class BoundingBoxQRCodeBasic(private val context: Context, private val debugMode: Boolean = false) : Graphic() {
+class BoundingBoxQRCodeBasic(private val context: Context, private val debugMode: Boolean = false) : Graphic(),
+    QRCodeTracker.QRCodeTrackingListener {
 
     private val cornerRadius = context.resources.getDimension(R.dimen.bounding_box_corner_radius)
     private val boxPadding = context.resources.getDimension(R.dimen.bounding_box_padding)
@@ -35,6 +36,20 @@ class BoundingBoxQRCodeBasic(private val context: Context, private val debugMode
 
     init {
         setBoundingBoxColor(Color.WHITE)
+    }
+
+    override fun onQrCodeTracked(qrCodeObject: QRCodeObject?) {
+        currentBoundingBox = qrCodeObject?.boundingBox
+
+        // Add padding in all directions to the bounding box
+        if (currentBoundingBox != null) {
+            currentBoundingBox!!.left -= boxPadding
+            currentBoundingBox!!.top -= boxPadding
+            currentBoundingBox!!.right += boxPadding
+            currentBoundingBox!!.bottom += boxPadding
+        }
+
+        host?.invalidate()
     }
 
     fun setBoundingBoxColor(@ColorInt color: Int) {

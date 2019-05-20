@@ -40,7 +40,7 @@ class GraphicOverlay(context: Context, attrs: AttributeSet) : FrameLayout(contex
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        graphics.forEach { it.draw(canvas) }
+        graphics.forEach { it.onDraw(canvas) }
     }
 
 }
