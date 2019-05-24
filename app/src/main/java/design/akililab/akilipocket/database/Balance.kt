@@ -10,7 +10,7 @@ data class Balance(
 
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "account_id")
-    var accountId: Long = 0L,
+    var accountId: String,
 
     @ColumnInfo(name = "balance")
     var balance: Float = 0F,

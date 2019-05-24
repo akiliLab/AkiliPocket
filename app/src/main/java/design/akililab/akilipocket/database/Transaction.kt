@@ -13,7 +13,7 @@ data class Transaction(
     var id: String = "",
 
     @ColumnInfo(name = "account_id")
-    var accountId: Long = 0L,
+    var accountId: String,
 
     @ColumnInfo(name = "account_balance")
     var accountBalance: Float = 0F,
