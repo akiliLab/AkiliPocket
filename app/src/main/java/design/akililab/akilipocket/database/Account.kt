@@ -3,7 +3,7 @@ package design.akililab.akilipocket.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.OffsetDateTime
+import java.util.*
 
 
 @Entity(tableName = "account_table")
@@ -16,5 +16,5 @@ data class Account(
     var description: String,
 
     @ColumnInfo(name = "created")
-    var created: OffsetDateTime
+    var created: Date
 )

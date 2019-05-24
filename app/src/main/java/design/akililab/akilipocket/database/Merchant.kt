@@ -4,7 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.net.URL
+import java.sql.Timestamp
 import java.time.OffsetDateTime
+import java.util.*
 
 @Entity(tableName = "merchant_table")
 
@@ -16,10 +18,10 @@ data class Merchant(
     var address: String,
 
     @ColumnInfo(name = "created")
-    var created: OffsetDateTime,
+    var created: Date,
 
     @ColumnInfo(name = "logo")
-    var logo: URL,
+    var logo: String,
 
     @ColumnInfo(name = "emoji")
     var emoji: String,

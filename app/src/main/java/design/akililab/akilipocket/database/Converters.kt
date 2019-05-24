@@ -1,6 +1,5 @@
 package design.akililab.akilipocket.database
 
-
 import androidx.room.TypeConverter
 import java.util.Date
 

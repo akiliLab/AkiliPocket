@@ -3,13 +3,13 @@ package design.akililab.akilipocket.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.OffsetDateTime
+import java.util.Date
 
 
 @Entity(tableName = "transaction_table")
 
 data class Transaction(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     var id: String = "",
 
     @ColumnInfo(name = "account_id")
@@ -23,7 +23,7 @@ data class Transaction(
 
 
     @ColumnInfo(name = "created")
-    var created: OffsetDateTime,
+    var created: Date,
 
     @ColumnInfo(name = "currency")
     var currency: String = "TZS",
@@ -48,7 +48,7 @@ data class Transaction(
     var isLoad: Boolean = false,
 
     @ColumnInfo(name = "settled")
-    var settled: OffsetDateTime,
+    var settled: Date,
 
     @ColumnInfo(name = "category")
     var category: String
