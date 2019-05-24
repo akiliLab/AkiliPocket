@@ -42,6 +42,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$core_version"
     implementation "androidx.core:core-ktx:$core_version"
+
+    // Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
     // Material design
@@ -57,12 +59,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision-object-detection-model:16.0.0'
 
 
-    // Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
-
     // Camera
     implementation "androidx.camera:camera-core:${camerax_version}"
     implementation "androidx.camera:camera-camera2:${camerax_version}"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Room and Lifecycle dependencies
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
 }
