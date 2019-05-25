@@ -6,9 +6,11 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import design.akililab.akilipocket.R
+import design.akililab.akilipocket.database.AppDatabase
 import design.akililab.akilipocket.databinding.FragmentHomeBinding
 
 
@@ -28,6 +30,18 @@ class HomeFragment : Fragment() {
         homeActivity.setSupportActionBar(binding.homeToolBar)
 
         homeActivity.supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+        val accountId = "acc_00009237aqC8c5umZmrRdh"
+
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = AppDatabase.getInstance(application).transactionDao
+
+        val viewModelFactory = HomeViewModelFactory(dataSource, accountId)
+
+        val homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
+
+        binding.homeViewModel = homeViewModel
 
         setHasOptionsMenu(true)
         

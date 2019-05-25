@@ -5,6 +5,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:context=".home.HomeFragment">
 
+
+    <data>
+        <variable
+                name="homeViewModel"
+                type="design.akililab.akilipocket.home.HomeViewModel"/>
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:id="@+id/homeConstraint"

@@ -16,6 +16,10 @@ interface TransactionDao {
     @Insert
     fun insert(transaction: Transaction)
 
+
+    @Insert
+    fun insertMultiple(transactions: List<Transaction>)
+
     /**
      * When updating a row with a value already set in a column,
      * replaces the old value with the new one.
@@ -42,6 +46,6 @@ interface TransactionDao {
      *
      * sorted by created in descending order.
      */
-    @Query("SELECT * FROM transaction_table WHERE account_id = :key ORDER BY created DESC")
+    @Query("SELECT * FROM transaction_table WHERE account_id = :key ORDER BY datetime(created) DESC")
     fun getTransactionsByAccountId(key: String): LiveData<List<Transaction>>
 }

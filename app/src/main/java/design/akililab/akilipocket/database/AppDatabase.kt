@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
+import java.util.*
 
 /**
  * A database that stores App information.
@@ -13,7 +15,7 @@ import androidx.room.TypeConverters
  */
 
 
-@Database(entities = [Account::class, Balance::class, Transaction::class, Merchant::class], version = 1, exportSchema = false)
+@Database(entities = [Account::class, Balance::class, Transaction::class, Merchant::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 
 abstract class AppDatabase: RoomDatabase() {
@@ -76,17 +78,8 @@ abstract class AppDatabase: RoomDatabase() {
                 var instance = INSTANCE
                 // If instance is `null` make a new database instance.
                 if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        AppDatabase::class.java,
-                        "akililab_akilipocket"
-                    )
-                        // Wipes and rebuilds instead of migrating if no Migration object.
-                        // Migration is not part of this lesson. You can learn more about
-                        // migration with Room in this blog post:
-                        // https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
-                        .fallbackToDestructiveMigration()
-                        .build()
+
+                    instance = buildDatabase(context)
                     // Assign INSTANCE to the newly created database.
                     INSTANCE = instance
                 }
@@ -94,6 +87,96 @@ abstract class AppDatabase: RoomDatabase() {
                 return instance
             }
         }
+
+        private fun buildDatabase(context: Context) =
+            Room.databaseBuilder(
+                context.applicationContext,
+                AppDatabase::class.java,
+                "akililab_akilipocket"
+            ).addCallback(object : Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    // insert the data on the IO Thread
+                    ioThread {
+                        getInstance(context).transactionDao.insertMultiple(PREPOPULATE_DATA)
+                    }
+                }
+            })
+            // Wipes and rebuilds instead of migrating if no Migration object.
+            // Migration is not part of this lesson. You can learn more about
+            // migration with Room in this blog post:
+            // https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
+            //
+            .fallbackToDestructiveMigration()
+            .build()
+
+
+        val PREPOPULATE_DATA = listOf(
+            Transaction(
+                "tx_00008zIcpb1TB4yeIFXMzx",
+                "acc_00009237aqC8c5umZmrRdh",
+                13013f,
+                -510f,
+                "2015-08-22T12:20:18Z",
+                "GBP",
+                "THE DE BEAUVOIR DELI C LONDON GBR",
+                "merch_00008zIcpbAKe8shBxXUtl",
+                "",
+                "null",
+                "Salmon sandwich 🍞",
+                false,
+                "2015-08-23T12:20:18Z",
+                "eating_out"
+            ),
+            Transaction(
+                "tx_06008zL2INM3xZ41THuRF3",
+                "acc_00009237aqC8c5umZmrRdh",
+                12334f,
+                -679f,
+                "2015-08-23T16:15:03Z",
+                "GBP",
+                "VUE BSL LTD ISLINGTON GBR",
+                "merch_00008z6uFVhVBcaZzSQwCX",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2015-08-23T12:20:18Z",
+                "eating_out"
+            ),
+            Transaction(
+                "tx_00708zL2INM3xZ41THuRF3",
+                "acc_00009237aqC8c5umZmrRdh",
+                13013f,
+                -510f,
+                "2015-08-22T12:20:18Z",
+                "GBP",
+                "THE DE BEAUVOIR DELI C LONDON GBR",
+                "merch_00008zIcpbAKe8shBxXUtl",
+                "",
+                "null",
+                "Salmon sandwich 🍞",
+                false,
+                "2015-08-22T12:20:18Z",
+                "eating_out"
+            ),
+            Transaction(
+                "tx_00088zL2INM3xZ41THuRF3",
+                "acc_00009237aqC8c5umZmrRdh",
+                12334f,
+                -679f,
+                "2015-08-22T12:20:18Z",
+                "GBP",
+                "VUE BSL LTD ISLINGTON GBR",
+                "merch_00008z6uFVhVBcaZzSQwCX",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2015-08-22T12:20:18Z",
+                "eating_out"
+            )
+        )
     }
 
 }

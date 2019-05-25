@@ -3,7 +3,6 @@ package design.akililab.akilipocket.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 
 @Entity(tableName = "transaction_table")
@@ -23,7 +22,7 @@ data class Transaction(
 
 
     @ColumnInfo(name = "created")
-    var created: Date,
+    var created: String,
 
     @ColumnInfo(name = "currency")
     var currency: String = "TZS",
@@ -48,7 +47,7 @@ data class Transaction(
     var isLoad: Boolean = false,
 
     @ColumnInfo(name = "settled")
-    var settled: Date,
+    var settled: String,
 
     @ColumnInfo(name = "category")
     var category: String
