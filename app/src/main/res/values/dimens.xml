@@ -94,4 +94,8 @@
     <dimen name="bounding_rect_stroke_width">1dp</dimen>
     <dimen name="bounding_box_padding">8dp</dimen>
     <dimen name="scan_beam_stroke_width">2dp</dimen>
+
+    <dimen name="icon_size">32dp</dimen>
+
+    <dimen name="amount_size_small">24.0sp</dimen>
 </resources>

@@ -6,6 +6,7 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -42,6 +43,14 @@ class HomeFragment : Fragment() {
         val homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
 
         binding.homeViewModel = homeViewModel
+
+        val adapter = HomeAdapter()
+
+        binding.transactionList.adapter = adapter
+
+        homeViewModel.transactions.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
 
         setHasOptionsMenu(true)
         
