@@ -5,4 +5,16 @@
     <!--Toolbar-->
     <style name="Widget.AppTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary"/>
 
+    <!-- Transaction list-->
+    <style name="Transaction.Name" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Transaction.Notes" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/subtitle</item>
+    </style>
+
 </resources>
