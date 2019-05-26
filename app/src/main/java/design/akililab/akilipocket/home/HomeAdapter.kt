@@ -21,7 +21,7 @@ class HomeAdapter : RecyclerView.Adapter<TextItemViewHolder>() {
 
     override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
         val item = data[position]
-        holder.textView.text = item.description
+        holder.textView.text = item.description.capitalize()
     }
 
 
