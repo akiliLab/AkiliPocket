@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         binding.transactionList.adapter = adapter
 
         homeViewModel.transactions.observe(viewLifecycleOwner, Observer {
-            adapter.data = it
+            adapter.submitList(it)
         })
 
         setHasOptionsMenu(true)
