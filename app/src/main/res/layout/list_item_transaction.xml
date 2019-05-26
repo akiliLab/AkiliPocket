@@ -41,7 +41,7 @@
                 style="@style/Transaction.Name"
                 app:layout_constraintStart_toEndOf="@+id/transaction_icon"
                 app:layout_constraintEnd_toStartOf="@+id/transaction_amount"
-                app:layout_constraintTop_toTopOf="@id/transaction_icon"/>
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"/>
         <TextView
                 android:id="@+id/transaction_note"
                 android:text="@{transaction.notes}"
