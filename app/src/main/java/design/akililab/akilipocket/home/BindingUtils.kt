@@ -16,6 +16,7 @@ const val CASH = "cash"
 const val BILLS = "bills"
 const val HOLIDAY = "holidays"
 const val GROCERIES = "groceries"
+const val CHARITY = "charity"
 
 
 @BindingAdapter("transactionNameFormatted")
@@ -39,17 +40,18 @@ fun ImageView.setTransactionIcons(item: Transaction) {
 
         setImageResource(when (item.category) {
 
-            EATING_OUT -> R.drawable.googleg_standard_color_18
-            SHOPPING -> R.drawable.googleg_standard_color_18
-            EXPENSE -> R.drawable.googleg_standard_color_18
-            GENERAL -> R.drawable.googleg_standard_color_18
-            TRANSPORT -> R.drawable.googleg_standard_color_18
-            CASH -> R.drawable.googleg_standard_color_18
-            BILLS -> R.drawable.googleg_standard_color_18
-            HOLIDAY -> R.drawable.googleg_standard_color_18
-            GROCERIES -> R.drawable.googleg_standard_color_18
+            EATING_OUT -> R.drawable.ic_cat_eating_out
+            SHOPPING -> R.drawable.ic_cat_shopping
+            EXPENSE -> R.drawable.ic_cat_expenses
+            GENERAL -> R.drawable.ic_cat_general
+            TRANSPORT -> R.drawable.ic_cat_transport
+            CASH -> R.drawable.ic_cash_deposit
+            BILLS -> R.drawable.ic_cat_bills
+            HOLIDAY -> R.drawable.ic_cat_holidays
+            GROCERIES -> R.drawable.ic_cat_groceries
+            CHARITY -> R.drawable.ic_cat_charity
 
-            else -> R.drawable.googleg_standard_color_18
+            else -> R.drawable.ic_cat_general
         })
     }
 

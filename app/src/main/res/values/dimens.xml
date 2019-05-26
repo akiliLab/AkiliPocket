@@ -95,5 +95,5 @@
     <dimen name="bounding_box_padding">8dp</dimen>
     <dimen name="scan_beam_stroke_width">2dp</dimen>
 
-    <dimen name="icon_size">64dp</dimen>
+    <dimen name="icon_size">32dp</dimen>
 </resources>
