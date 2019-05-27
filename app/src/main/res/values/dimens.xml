@@ -9,7 +9,7 @@
     <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>
 
     <dimen name="elevation_default_top_app_bar">0dp</dimen>
-    <dimen name="length_app_bar_layout">150dp</dimen>
+    <dimen name="length_app_bar_layout">240dp</dimen>
     <dimen name="toolbar_image_offset_top">16dp</dimen>
 
     <!--Emphasis modifiers for "on" colors-->

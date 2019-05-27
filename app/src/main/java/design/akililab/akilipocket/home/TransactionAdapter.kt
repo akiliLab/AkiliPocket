@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import design.akililab.akilipocket.database.Transaction
 import design.akililab.akilipocket.databinding.ListItemTransactionBinding
 
-class HomeAdapter : ListAdapter<Transaction, HomeAdapter.ViewHolder>(TransactionDiffCallback()) {
+class TransactionAdapter : ListAdapter<Transaction, TransactionAdapter.ViewHolder>(TransactionDiffCallback()) {
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -28,6 +28,8 @@ class HomeAdapter : ListAdapter<Transaction, HomeAdapter.ViewHolder>(Transaction
             binding.transaction = item
             binding.executePendingBindings()
         }
+
+
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
