@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import java.util.*
 
 /**
  * A database that stores App information.
@@ -15,7 +14,7 @@ import java.util.*
  */
 
 
-@Database(entities = [Account::class, Balance::class, Transaction::class, Merchant::class], version = 2, exportSchema = false)
+@Database(entities = [Account::class, Balance::class, Transaction::class, Merchant::class], version = 3, exportSchema = false)
 @TypeConverters(Converters::class)
 
 abstract class AppDatabase: RoomDatabase() {
@@ -119,7 +118,7 @@ abstract class AppDatabase: RoomDatabase() {
                 -510f,
                 "2015-08-22T12:20:18Z",
                 "GBP",
-                "THE DE BEAUVOIR DELI C LONDON GBR",
+                "THE DE BEAUVOIR DELI C            LONDON GBR",
                 "merch_00008zIcpbAKe8shBxXUtl",
                 "",
                 "null",
@@ -135,7 +134,7 @@ abstract class AppDatabase: RoomDatabase() {
                 -679f,
                 "2015-08-23T16:15:03Z",
                 "GBP",
-                "VUE BSL LTD ISLINGTON GBR",
+                "VUE BSL LTD            ISLINGTON GBR",
                 "merch_00008z6uFVhVBcaZzSQwCX",
                 "",
                 "null",
@@ -151,7 +150,7 @@ abstract class AppDatabase: RoomDatabase() {
                 -510f,
                 "2015-08-22T12:20:18Z",
                 "GBP",
-                "THE DE BEAUVOIR DELI C LONDON GBR",
+                "THE DE BEAUVOIR DELI C            LONDON GBR",
                 "merch_00008zIcpbAKe8shBxXUtl",
                 "",
                 "null",
@@ -167,7 +166,7 @@ abstract class AppDatabase: RoomDatabase() {
                 -679f,
                 "2015-08-22T12:20:18Z",
                 "GBP",
-                "VUE BSL LTD ISLINGTON GBR",
+                "VUE BSL LTD            ISLINGTON GBR",
                 "merch_00008z6uFVhVBcaZzSQwCX",
                 "",
                 "null",
@@ -175,6 +174,168 @@ abstract class AppDatabase: RoomDatabase() {
                 false,
                 "2015-08-22T12:20:18Z",
                 "eating_out"
+            ),
+            Transaction(
+                "tx_00009fRczGMWXXifXfqLq5",
+                "acc_00009237aqC8c5umZmrRdh",
+                12334f,
+                -20239f,
+                "2019-02-03T03:02:42.925Z",
+                "GBP",
+                "RwandAir             Kigali RWA",
+                "merch_00009ctN0K0eAV7pr00Sf3",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-02-04T05:15:56.799Z",
+                "expenses"
+            ),
+            Transaction(
+                "tx_00009f5HoGe8lqWjjDQ61B",
+                "acc_00009237aqC8c5umZmrRdh",
+                12334f,
+                -679f,
+                "2019-01-23T08:21:46.362Z",
+                "GBP",
+                "Spotify             UK London        GBR",
+                "merch_00009bk8PYjxF8iGn4ZSdN",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-01-24T16:00:04.432Z",
+                "entertainment"
+            ),
+            Transaction(
+                "tx_00009fCAFghMZxefoYl8sb",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -640f,
+                "2019-01-26T16:00:04.432Z",
+                "GBP",
+                "GAME DISCOUNT WORLD T            DAR ES SAL    TZA",
+                "merch_00009RD3XHWlkWM4pZ72UT",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-01-26T16:00:04.432Z",
+                "eating_out"
+            ),
+            Transaction(
+                "tx_1009fCAFghMZxefoYl8sb",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -640f,
+                "2019-01-28T05:37:03.401Z",
+                "GBP",
+                "GAME DISCOUNT WORLD T            DAR ES SAL    TZA",
+                "merch_00009RD3XHWlkWM4pZ72UT",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-01-28T05:37:03.401Z",
+                "shopping"
+            )
+            ,
+            Transaction(
+                "tx_00009fE3w1om8Whk7COA2z",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -640f,
+                "2019-01-27T13:58:42.436Z",
+                "GBP",
+                "CENTURY CINEMAX-MLIMAN            DAR ES SALAAM TZA",
+                "merch_00009fE3w2STkuSo6Kxrvt",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-01-30T16:00:04.432Z",
+                "entertainment"
+            ),
+            Transaction(
+                "tx_07809fCAFghMZxefoYl8sb",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -640f,
+                "2019-04-23T03:14:11.84Z",
+                "GBP",
+                "NETFLIX.COM            866-716-0414  NLD",
+                "merch_000094OsgoFbcexvVB3AUT",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-04-23T03:14:12.086Z",
+                "entertainment"
+            ),
+            Transaction(
+                "tx_00009iEguSOoN8sjYYpX3x",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -77f,
+                "2019-04-27T14:51:43.396Z",
+                "GBP",
+                "HULUPLUS            HULU.COM/BILL CA ",
+                "merch_00009XqU4KSOKcdZL1R8jZ",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-04-27T14:51:43.396Z",
+                "eating_out"
+            ),
+            Transaction(
+                "tx_00009fEH54N1JafwEG2KAL",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -999f,
+                "2019-04-29T06:54:26.319Z",
+                "GBP",
+                "Spotify UK            London        GBR",
+                "merch_00009RD3XHWlkWM4pZ72UT",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-04-29T06:54:26.319Z",
+                "shopping"
+            )
+            ,
+            Transaction(
+                "tx_00009j5d8zJEhyERPbwvjN",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -640f,
+                "2019-05-23T03:49:13.619Z",
+                "GBP",
+                "NETFLIX.COM            Amsterdam     NLD",
+                "merch_00009hziGcPl0Blk3vplqL",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-05-23T03:49:13.619Z",
+                "entertainment"
+            ),
+            Transaction(
+                "tx_00009edVSY5pBOhL0mcbir",
+                "acc_00009237aqC8c5umZmrRdh",
+                0f,
+                -599f,
+                "2019-05-23T03:58:58.605Z",
+                "GBP",
+                "NETFLIX.COM            866-716-0414  NLD",
+                "merch_000094OsgoFbcexvVB3AUT",
+                "",
+                "null",
+                "Gastric Juice",
+                false,
+                "2019-05-23T03:58:58.605Z",
+                "entertainment"
             )
         )
     }

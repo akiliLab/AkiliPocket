@@ -44,12 +44,12 @@ class HomeFragment : Fragment() {
 
         binding.homeViewModel = homeViewModel
 
-        val adapter = HomeAdapter()
+        val adapter = TransactionAdapter()
 
         binding.transactionList.adapter = adapter
 
         homeViewModel.transactions.observe(viewLifecycleOwner, Observer {
-            adapter.data = it
+            adapter.submitList(it)
         })
 
         setHasOptionsMenu(true)
