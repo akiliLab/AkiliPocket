@@ -7,7 +7,10 @@
     <fragment android:id="@+id/homeFragment"
               android:name="design.akililab.akilipocket.home.HomeFragment"
               android:label="Home"
-              tools:layout="@layout/fragment_home"/>
+              tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_homeFragment_to_transactionDetailFragment"
+                app:destination="@id/transactionDetailFragment"/>
+    </fragment>
 
     <fragment android:id="@+id/accountFragment"
               android:name="design.akililab.akilipocket.account.AccountFragment"
@@ -25,5 +28,11 @@
               tools:layout="@layout/fragment_profile"/>
     <fragment android:id="@+id/paymentFragment" android:name="design.akililab.akilipocket.payment.PaymentFragment"
               android:label="fragment_payment" tools:layout="@layout/fragment_payment"/>
+    <fragment android:id="@+id/transactionDetailFragment"
+              android:name="design.akililab.akilipocket.transactiondetail.TransactionDetailFragment"
+              android:label="TransactionDetailFragment">
+        <action android:id="@+id/action_transactionDetailFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+        <argument android:name="transactionId" app:argType="string"/>
+    </fragment>
 
 </navigation>

@@ -3,13 +3,13 @@ package design.akililab.akilipocket.home
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import design.akililab.akilipocket.R
 import design.akililab.akilipocket.database.AppDatabase
@@ -46,13 +46,24 @@ class HomeFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
         val adapter = TransactionAdapter(TransactionListener { transactionId ->
-            Toast.makeText(context, "${transactionId}", Toast.LENGTH_LONG).show()
+            homeViewModel.onTransactionItemClicked(transactionId)
         })
 
         binding.transactionList.adapter = adapter
 
         homeViewModel.transactions.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
+        })
+
+        homeViewModel.navigateToTransactionDetail.observe(this, Observer { transactionId ->
+
+            transactionId?.let {
+
+                this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransactionDetailFragment(transactionId))
+
+                homeViewModel.onTransactionDetailNavigated()
+            }
+
         })
 
         setHasOptionsMenu(true)
