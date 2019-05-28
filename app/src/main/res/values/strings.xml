@@ -92,5 +92,6 @@
     <string name="transaction">Transaction</string>
     <string name="transaction_note">Transaction note</string>
     <string name="transaction_amount">+98.9</string>
+    <string name="transaction_details">Transaction Details</string>
 
 </resources>

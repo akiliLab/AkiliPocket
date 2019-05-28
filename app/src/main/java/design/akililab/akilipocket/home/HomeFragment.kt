@@ -3,6 +3,7 @@ package design.akililab.akilipocket.home
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -44,7 +45,9 @@ class HomeFragment : Fragment() {
 
         binding.homeViewModel = homeViewModel
 
-        val adapter = TransactionAdapter()
+        val adapter = TransactionAdapter(TransactionListener { transactionId ->
+            Toast.makeText(context, "${transactionId}", Toast.LENGTH_LONG).show()
+        })
 
         binding.transactionList.adapter = adapter
 

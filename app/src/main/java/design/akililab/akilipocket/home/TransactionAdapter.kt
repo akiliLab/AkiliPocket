@@ -8,32 +8,29 @@ import androidx.recyclerview.widget.RecyclerView
 import design.akililab.akilipocket.database.Transaction
 import design.akililab.akilipocket.databinding.ListItemTransactionBinding
 
-class TransactionAdapter : ListAdapter<Transaction, TransactionAdapter.ViewHolder>(TransactionDiffCallback()) {
+class TransactionAdapter(private val clickListener: TransactionListener) : ListAdapter<Transaction, TransactionAdapter.ViewHolder>(TransactionDiffCallback()) {
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(clickListener, item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
-
     class ViewHolder(val binding: ListItemTransactionBinding): RecyclerView.ViewHolder(binding.root) {
 
-
-        fun bind(item: Transaction) {
+        fun bind(clickListener: TransactionListener, item: Transaction) {
             binding.transaction = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
-
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-
 
                 val binding = ListItemTransactionBinding.inflate(layoutInflater, parent, false)
 
@@ -54,4 +51,10 @@ class TransactionDiffCallback :
     override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem == newItem
     }
+}
+
+
+class TransactionListener(val clickListener: (transactionId: String) -> Unit) {
+
+    fun onClick(transaction: Transaction) = clickListener(transaction.id)
 }

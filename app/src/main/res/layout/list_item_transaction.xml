@@ -7,13 +7,17 @@
     <data>
         <variable name="transaction"
                   type="design.akililab.akilipocket.database.Transaction"/>
+
+        <variable name="clickListener"
+                  type="design.akililab.akilipocket.home.TransactionListener"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:id="@+id/transaction_list_item">
+            android:id="@+id/transaction_list_item"
+            android:onClick="@{() -> clickListener.onClick(transaction)}">
 
         <ImageView
                 android:id="@+id/transaction_icon"
