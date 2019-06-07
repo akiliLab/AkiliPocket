@@ -37,7 +37,8 @@ interface TransactionDao {
      * @param key id to match
      */
     @Query("SELECT * from transaction_table WHERE id = :key")
-    fun get(key: String): Transaction?
+    fun get(key: String): LiveData<Transaction>
+
 
 
 

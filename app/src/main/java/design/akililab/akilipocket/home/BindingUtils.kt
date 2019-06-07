@@ -1,5 +1,6 @@
 package design.akililab.akilipocket.home
 
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -21,14 +22,15 @@ const val CHARITY = "charity"
 
 @BindingAdapter("transactionNameFormatted")
 fun TextView.setTransactionName(item: Transaction) {
-    item?.let {
+    Log.d("adapter", item.description)
+    item.let {
         text = item.description.split("            ")[0]
     }
 }
 
 @BindingAdapter("transactionAmountString")
 fun TextView.setTransactionAmount(item: Transaction) {
-    item?.let {
+    item.let {
         text = Math.abs(item.amount.div(100)).toString()
     }
 }
@@ -36,7 +38,7 @@ fun TextView.setTransactionAmount(item: Transaction) {
 
 @BindingAdapter("transactionImage")
 fun ImageView.setTransactionIcons(item: Transaction) {
-    item?.let {
+    item.let {
 
         setImageResource(when (item.category) {
 

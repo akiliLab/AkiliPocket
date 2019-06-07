@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import design.akililab.akilipocket.R
 import design.akililab.akilipocket.database.AppDatabase
@@ -44,12 +45,25 @@ class HomeFragment : Fragment() {
 
         binding.homeViewModel = homeViewModel
 
-        val adapter = TransactionAdapter()
+        val adapter = TransactionAdapter(TransactionListener { transactionId ->
+            homeViewModel.onTransactionItemClicked(transactionId)
+        })
 
         binding.transactionList.adapter = adapter
 
         homeViewModel.transactions.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
+        })
+
+        homeViewModel.navigateToTransactionDetail.observe(this, Observer { transactionId ->
+
+            transactionId?.let {
+
+                this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransactionDetailFragment(transactionId))
+
+                homeViewModel.onTransactionDetailNavigated()
+            }
+
         })
 
         setHasOptionsMenu(true)
