@@ -3,7 +3,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
     <data>
-
+        <variable name="transaction"
+                  type="design.akililab.akilipocket.database.Transaction"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,35 +39,9 @@
                         android:background="@color/lighter_grey"
                         android:minHeight="200dp">
                 </com.google.android.material.card.MaterialCardView>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
-                    <ImageView
-                            android:src="@drawable/ic_cat_groceries"
-                            android:layout_width="@dimen/icon_size"
-                            android:layout_height="@dimen/icon_size"
-                            android:id="@+id/transaction_icon"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginTop="16dp"
-                            android:contentDescription="@string/eating_out"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginBottom="16dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="16dp"/>
-                    <TextView
-                            android:text="@string/eating_out"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/category_name"
-                            android:textSize="18.0sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-                            app:layout_constraintStart_toEndOf="@+id/transaction_icon"
-                            android:layout_marginStart="16dp"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <include android:id="@+id/category_detail" layout="@layout/item_transaction_detail_category"/>
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
